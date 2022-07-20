@@ -6,7 +6,7 @@ module.exports.findAllJokes = (req, res) => {
         res.json({ jokes: allJokes })
     })
     .catch((err) => {
-        res.json({ messgae: 'Something went wrong', error: err })
+        res.json({ message: 'Something went wrong', error: err })
     });
 }
 
@@ -16,7 +16,7 @@ module.exports.findOneJoke = (req, res) => {
         res.json({ joke: oneJoke })
     })
     .catch((err) => {
-        res.json({ messgae: 'Something went wrong', error: err })
+        res.json({ message: 'Something went wrong', error: err })
     });
 }
 
@@ -26,7 +26,7 @@ module.exports.createNewJoke = (req, res) => {
         res.json({ joke: newJoke })
     })
     .catch((err) => {
-        res.json({ messgae: 'Something went wrong', error: err })
+        res.json({ message: 'Something went wrong', error: err })
     });
 }
 
