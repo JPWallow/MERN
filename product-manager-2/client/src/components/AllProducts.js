@@ -1,0 +1,36 @@
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { Link } from 'react-router-dom';
+
+const AllProducts = (props) => {
+
+    const {productList, setProductList} = props;
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/products")
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+                setProductList(res.data);
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }, [])
+
+    return(
+        <div>
+            <h1>All Products</h1>
+            {
+                productList.map((product, index) =>(
+                    <div key={product._id}>
+                        <Link to={`/product/${product._id}`}>{product.title}</Link>
+                    </div>
+                ))
+            }
+        </div>
+    )
+
+}
+
+export default AllProducts;
